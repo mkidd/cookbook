@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  size: MyString
+  quantity: 1.5
+
+two:
+  size: MyString
+  quantity: 1.5
