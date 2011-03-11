@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110222230025) do
+ActiveRecord::Schema.define(:version => 20110311204010) do
 
   create_table "directions", :force => true do |t|
     t.integer  "recipe_id"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20110222230025) do
     t.float    "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "abbreviation"
+    t.string   "measurement"
+    t.string   "measurement_type"
   end
 
   create_table "recipes", :force => true do |t|
@@ -44,6 +47,17 @@ ActiveRecord::Schema.define(:version => 20110222230025) do
     t.datetime "updated_at"
     t.string   "source"
     t.string   "image"
+    t.string   "cooktime"
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
 end

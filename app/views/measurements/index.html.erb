@@ -1,0 +1,15 @@
+<h1>Measurement#index</h1>
+<p>Find me in app/views/measurement/index.html.erb</p>
+
+
+<h1>Listing Measurements</h1>
+
+<div id="measurements">
+	<% if !@measurements.empty? %>
+		<% @measurements.each do |single_measurement| %>
+			<%= single_measurement.abbreviation %>
+		<% end %>
+	<% else %>
+		I got nothin'
+	<% end %>
+</div>

@@ -1,60 +1,15 @@
 Cookbook::Application.routes.draw do
   root :to => "recipes#index"
-  resources :recipes
+  match 'login' => "sessions#new", :as => "login"
+  match 'logout' => "sessions#destroy", :as => "logout"
+  resources :measurements, :recipes, :ingredients, :direction
+  resource :session
+  
+#resources :recipes do
+#resources :ingredients
+#end
 
-  get "recipe/index"
-
-  get "recipe/show"
-
-  get "recipe/new"
-
-  get "recipe/edit"
-
-  get "recipe/create"
-
-  get "recipe/update"
-
-  get "recipe/destroy"
-
-  get "measurement/index"
-
-  get "measurement/show"
-
-  get "measurement/new"
-
-  get "measurement/edit"
-
-  get "measurement/create"
-
-  get "measurement/update"
-
-  get "measurement/destroy"
-
-  get "ingredient/index"
-
-  get "ingredient/show"
-
-  get "ingredient/new"
-
-  get "ingredient/edit"
-
-  get "ingredient/create"
-
-  get "ingredient/update"
-
-  get "ingredient/destroy"
-
-  get "direction/index"
-
-  get "direction/show"
-
-  get "direction/new"
-
-  get "direction/edit"
-
-  get "direction/create"
-
-  get "direction/update"
-
-  get "direction/destroy"
+#resources :recipes do
+#resources :directions
+#end
 end

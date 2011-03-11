@@ -2,4 +2,23 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  general:
+    are_you_sure: Are you sure?
+    back: Back
+    cancel: Cancel
+    create: Create
+    delete: Delete
+    edit: Edit
+    editing: Editing
+    footer: A simple blog built for the book
+    email_a_friend: Email a friend
+    search: Search
+    send_email: Send email
+    show: Show
+    title: Blog
+    update: Update
+    your_name: Your name
+    your_friend_email: Your friend's email
+    or: or
+  application:
+    access_denied: Please log in to continue

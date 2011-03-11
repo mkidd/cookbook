@@ -1,0 +1,39 @@
+<%= form_for @measurement, :url_for => {:controller => 'measurements', :action => 'create'} do |f| %>
+  <% if @measurement.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@article.errors.count, "error") %> prohibited this measurement from being saved:</h2>
+    <ul>
+    <% @measurement.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :measurement %>
+    <%= f.text_field :measurement %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :abbreviation %>
+    <%= f.text_field :abbreviation %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :measurement_type %>
+    <%= f.text_field :measurement_type %>
+  </fieldset>
+
+  <div class="actions">
+    <%= submit_or_cancel(f) %>
+  </div>
+<% end %>
