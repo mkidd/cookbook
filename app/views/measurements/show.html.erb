@@ -1,5 +1,9 @@
 <h1>Measurement#show</h1>
 <p>Find me in app/views/measurement/show.html.erb</p>
 
-
+<%= @measurement.measurement %>
 <%= @measurement.abbreviation %>
+<%= @measurement.measurement_type %>
+<br/>
+<%= link_to "Add another Measurement!", new_measurement_path %>
+<%= link_to "Return to Measurement index", measurements_url %>

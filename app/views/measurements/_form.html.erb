@@ -32,8 +32,13 @@
     <%= f.label :measurement_type %>
     <%= f.text_field :measurement_type %>
   </fieldset>
+  <fieldset>
+    <%= f.label :equivalent %>
+    <%= f.text_field :equivalent %>
+  </fieldset>
 
   <div class="actions">
     <%= submit_or_cancel(f) %>
   </div>
+	<%-# go section for more info on forms: http://guides.rubyonrails.org/form_helpers.html#-%>
 <% end %>

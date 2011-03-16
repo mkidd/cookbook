@@ -13,7 +13,7 @@ end
 # GET /articles/1
 # GET /articles/1.xml
 def show
-    @recipes = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,17 +24,14 @@ end
 # GET /articles/new
 # GET /articles/new.xml
 def new
-    @recipes = Recipe.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @recipes }
-    end
+    @recipe = Recipe.new
+    #@recipe.ingredient.build #creates single ingredient
+    #@recipe.direction.build #creates single direction
 end
 
 # GET /articles/1/edit
 def edit
-    @recipes = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
 end
 
 # POST /articles
@@ -42,14 +39,10 @@ end
 def create
   @recipe = Recipe.new(params[:recipe])
 
-  respond_to do |format|
-    if @article.save
-      format.html { redirect_to(@recipe, :notice => 'Recipe was successfully created.') }
-      format.xml  { render :xml => @recipe, :status => :created, :location => @article }
-    else
-      format.html { render :action => "new" }
-      format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
-    end
+  if @recipe.save
+    redirect_to recipe_url(@recipe), :notice => 'Recipe successfully added.'
+  else
+    redirect_to new_recipe_url
   end
 end
 
@@ -80,4 +73,13 @@ def destroy
     format.xml  { head :ok }
   end
 end
+
+def add_ingredient
+  @ingredient = Ingredient.new
+end
+
+def add_direction
+  @direction = Direction.new
+end
+
 end

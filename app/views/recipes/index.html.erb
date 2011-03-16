@@ -1,2 +1,19 @@
 <h1>Recipe#index</h1>
 <p>Find me in app/views/recipe/index.html.erb</p>
+
+<h1>Listing Recipes</h1>
+
+<div id="recipes">
+	<% if !@recipes.empty? %>
+		<% @recipes.each do |single_recipe| %>
+			<%= single_recipe.title %>
+			<%= link_to "Delete", single_recipe, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to "Edit", edit_recipe_path(single_recipe)%><br/>
+		<% end %>
+	<% else %>
+		I got nothin'
+	<% end %>
+	<br/>
+	<br/>
+	<%= link_to "Add new Recipe!", new_recipe_path %>
+</div>

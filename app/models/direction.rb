@@ -1,4 +1,6 @@
 class Direction < ActiveRecord::Base
+    belongs_to :recipe
+  
     validates :number, :presence => true
     validates :instruction, :presence => true
     

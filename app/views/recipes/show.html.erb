@@ -1,2 +1,10 @@
 <h1>Recipe#show</h1>
-<p>Find me in app/views/recipe/show.html.erb</p>
+
+<%= @recipe.title %>
+<%= @recipe.source %>
+<%= @recipe.image %>
+<%= @recipe.cooktime %>
+<%= @recipe.description %>
+<br/>
+<%= link_to "Add another Recipe!", new_recipe_path %>
+<%= link_to "Return to Recipe index", recipes_url %>

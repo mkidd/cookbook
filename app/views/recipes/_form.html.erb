@@ -1,0 +1,44 @@
+<%= form_for @recipe, :url_for => {:controller => 'recipes', :action => 'create'} do |f| %>
+  <% if @recipe.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+    <ul>
+    <% @recipe.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :source %>
+    <%= f.text_field :source %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :cooktime %>
+    <%= f.text_field :cooktime %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </fieldset>
+  <div id="ingredients">
+	<%= f.fields_for :ingredients do |ingredients| %>
+	  <%= render "ingredient_field", :f => ingredients %>
+	<% end %>
+  </div>
+  <%# <p><%= link_to_add_ingredient "Add Ingredient", f, :ingredients #%><%#</p>  #%>
+  <%# <p><%= link_to_add_fields "Add Ingredient", f, :ingredients #%><%#</p>  #%>
+  <div id="directions">
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -35,4 +35,14 @@ class MeasurementsController < ApplicationController
       render :action => 'edit'
     end
   end
+  
+  def destroy
+      @single_measurement = Measurement.find(params[:id])
+      @single_measurement.destroy
+      
+      respond_to do |format|
+        format.html { redirect_to(measurements_url)}
+        format.xml  { head :ok }
+      end
+  end
 end
