@@ -5,6 +5,9 @@ class CreateRecipes < ActiveRecord::Migration
       t.references :direction
       t.string :title
       t.text :description
+      t.string :source
+      t.string :image
+      t.string :cooktime
       t.timestamps
     end
   end

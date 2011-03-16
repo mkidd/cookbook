@@ -29,11 +29,9 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
   </fieldset>
-  <div id="ingredients">
-	<%= f.fields_for :ingredients do |ingredients| %>
-	  <%= render "ingredient_field", :f => ingredients %>
-	<% end %>
-  </div>
+  <%= f.fields_for :ingredients do |builder| %>
+    <%= render "ingredient_field", :f => builder %>
+  <% end %>
   <%# <p><%= link_to_add_ingredient "Add Ingredient", f, :ingredients #%><%#</p>  #%>
   <%# <p><%= link_to_add_fields "Add Ingredient", f, :ingredients #%><%#</p>  #%>
   <div id="directions">

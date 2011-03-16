@@ -3,6 +3,10 @@ class CreateMeasurements < ActiveRecord::Migration
     create_table :measurements do |t|
       t.string :size
       t.float :quantity
+      t.string :abbreviation
+      t.string :measurement
+      t.string :measurement_type
+      t.string :equivalent
       t.timestamps
     end
   end

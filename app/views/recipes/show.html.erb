@@ -6,5 +6,13 @@
 <%= @recipe.cooktime %>
 <%= @recipe.description %>
 <br/>
+<ol>
+<% for ingredient in @recipe.ingredients %>
+  <li>
+    <%= ingredient.food %>
+  </li>
+<% end %>
+</ol>
+<br/>
 <%= link_to "Add another Recipe!", new_recipe_path %>
 <%= link_to "Return to Recipe index", recipes_url %>

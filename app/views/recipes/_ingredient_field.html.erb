@@ -1,10 +1,8 @@
-<div id="ingredient_<%= index %>">
-  <% fields_for "ingredients[#{index}]", ingredient do |f| %>
-	    <fieldset>
-	      <% = f.label :food %>
-		  <% = f.text_field :food %>
-		  <%= link_to_remove_fields "remove", f %>
-	    </fieldset>
-  <% end %>
-  <%#= link_to_remove_fields "remove", f %>
+<div id="ingredients">
+	<fieldset>
+		<% = f.label :food %>
+		<% = f.text_field :food %>
+		<%= link_to_remove_fields "remove", f %>
+	</fieldset>
+	<%= link_to_remove_fields "remove", f %>
 </div>

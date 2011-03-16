@@ -2,6 +2,7 @@ class CreateIngredients < ActiveRecord::Migration
   def self.up
     create_table :ingredients do |t|
       t.references :measurement
+      t.references :recipe
       t.string :quantity
       t.string :food
 
