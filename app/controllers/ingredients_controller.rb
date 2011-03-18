@@ -1,13 +1,14 @@
 class IngredientsController < ApplicationController
 
-    before_filter :load_recipe
+    before_filter :load_recipe, :except => :destroy
 
     def create
-      @ingredient = Ingredient.new(params[:ingredient])
+      #@ingredient = Ingredient.new(params[:ingredient])
+      @ingredient = @recipe.ingredients.new(params[:ingredient])
       if @ingredient.save
-        redirect_to ingredients_path, :notice => 'Ingredient successfully added.'
+        redirect_to @recipe, :notice => 'Ingredient successfully added.'
       else
-        render :action => 'new'
+        redirect_to @recipe, :alert => 'Unable to add ingredient'
       end
     end
 

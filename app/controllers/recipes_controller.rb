@@ -25,8 +25,6 @@ end
 # GET /articles/new.xml
 def new
     @recipe = Recipe.new
-    #@recipe.ingredient.build #creates single ingredient
-    #@recipe.direction.build #creates single direction
 end
 
 # GET /articles/1/edit
