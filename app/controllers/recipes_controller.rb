@@ -25,6 +25,7 @@ end
 # GET /articles/new.xml
 def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
 end
 
 # GET /articles/1/edit

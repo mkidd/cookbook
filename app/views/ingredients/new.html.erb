@@ -1,11 +1,6 @@
 <h1>Ingredient#new</h1>
 <p>Find me in app/views/ingredient/new.html.erb</p>
-<%= form_for([@recipe, @recipe.ingredients.new], :remote => true, :html => {:style => 'display: none;'}) do |f| %>
-  <div class="field">
-    <%= f.label :food %><br />
-    <%= f.text_field :food %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Add' %>
-  </div>
-<% end %>
+
+<%= render :partial => 'form' %>
+<%= debug @recipe %>
+<%= link_to 'Back', recipes_path %>

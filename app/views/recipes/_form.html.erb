@@ -31,7 +31,18 @@
   </fieldset>
   <div id="ingredients">
 	<h3>Ingredients</h3>
-	<%= link_to "Add Ingredient", new_recipe_ingredient_path(@recipe, :format => :js), :remote => true, :id => 'new_ingredient_link' %>
+	<%= f.fields_for :ingredients do |g| %>
+	  <div class="field">
+	    <%= g.label :food %><br />
+	    <%= g.text_field :food %>
+	  </div>
+	  <% unless g.object.new_record? %>
+	  	<div>
+	      <%= g.label :_delete, 'Remove:' %>
+	      <%= g.check_box :_delete %>
+	    </div>
+	  <% end %>
+	<% end %>
   </div>
   <%# <p><%= link_to_add_ingredient "Add Ingredient", f, :ingredients #%><%#</p>  #%>
   <%# <p><%= link_to_add_fields "Add Ingredient", f, :ingredients #%><%#</p>  #%>

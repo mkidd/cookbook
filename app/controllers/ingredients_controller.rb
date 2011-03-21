@@ -1,6 +1,9 @@
 class IngredientsController < ApplicationController
 
     before_filter :load_recipe, :except => :destroy
+    def new
+        @ingredient = Ingredient.new
+    end
 
     def create
       #@ingredient = Ingredient.new(params[:ingredient])
