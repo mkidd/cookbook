@@ -5,5 +5,5 @@ Cookbook::Application.routes.draw do
   resources :recipes do
     resources :ingredients, :directions, :measurements
   end
-  resources :session, :ingredients, :directions, :measurements
+  resources :sessions, :ingredients, :directions, :measurements
 end
