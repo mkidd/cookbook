@@ -1,0 +1,10 @@
+<div id="ingredients">
+	<fieldset>
+		<%= f.label :quantity %>
+		<%= f.text_field :quantity %>
+		<%= collection_select(:ingredient, :measurement_id, Measurement.all, :size, :size) %>
+		<%= f.label :food %>
+		<%= f.text_field :food %>
+	</fieldset>
+	<%= link_to_remove_fields "remove", f %>
+</div>

@@ -22,8 +22,7 @@ class IngredientsController < ApplicationController
     end
 
     private
-      def load_recipe
-        @recipe = Recipe.find(params[:recipe_id])
-      end  
-  end
+    def load_recipe
+      @recipe = Recipe.find(params[:recipe_id])
+    end  
 end

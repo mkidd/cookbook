@@ -32,22 +32,35 @@
   <div id="ingredients">
 	<h3>Ingredients</h3>
 	<%= f.fields_for :ingredients do |g| %>
-	  <div class="field">
-	    <%= g.label :food %><br />
+	  <fieldset>
+	    <%= g.label :quantity %>
+	    <%= g.text_field :quantity %>
+		<% if @g.measurement.present? %>
+		  We got a measurement...maybe 
+		  <%#= g.measurement.measurement %>
+		<% else %>
+		  Got nothin
+		<% end %>
+	    <%= g.label :food %>
 	    <%= g.text_field :food %>
-	  </div>
-	  <% unless g.object.new_record? %>
-	  	<div>
-	      <%= g.label :_delete, 'Remove:' %>
-	      <%= g.check_box :_delete %>
-	    </div>
-	  <% end %>
+	  </fieldset>
 	<% end %>
+	<p><%= link_to_add_fields "Add Ingredient", f, :ingredients %></p>
   </div>
   <%# <p><%= link_to_add_ingredient "Add Ingredient", f, :ingredients #%><%#</p>  #%>
-  <%# <p><%= link_to_add_fields "Add Ingredient", f, :ingredients #%><%#</p>  #%>
   <div id="directions">
 	<h3>Directions</h3>
+	<%= f.fields_for :directions do |d| %>
+	  <fieldset>
+        <%= d.label :number %>
+        <%= d.text_field :number %>
+      </fieldset>
+	  <fieldset>
+        <%= d.label :instruction %>
+        <%= d.text_field :instruction %>
+      </fieldset>  
+	<% end %>
+	<p><%= link_to_add_fields "Add Direction", f, :directions %></p>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -3,9 +3,9 @@
 
 <h1>Listing Directions</h1>
 
-<div id="measurements">
+<div id="directions">
 	<% if !@directions.empty? %>
-		<% @measurements.each do |single_direction| %>
+		<% @directions.each do |single_direction| %>
 			<%= single_direction.instruction %>
 			<%= link_to "Delete", single_direction, :confirm => 'Are you sure?', :method => :delete %>
 			<%= link_to "Edit", edit_direction_path(single_direction)%><br/>

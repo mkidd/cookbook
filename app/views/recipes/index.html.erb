@@ -7,6 +7,7 @@
 	<% if !@recipes.empty? %>
 		<% @recipes.each do |single_recipe| %>
 			<%= single_recipe.title %>
+			<%= link_to "View", recipe_path(single_recipe)%>
 			<%= link_to "Delete", single_recipe, :confirm => 'Are you sure?', :method => :delete %>
 			<%= link_to "Edit", edit_recipe_path(single_recipe)%><br/>
 		<% end %>

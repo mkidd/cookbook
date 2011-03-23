@@ -25,7 +25,8 @@ end
 # GET /articles/new.xml
 def new
     @recipe = Recipe.new
-    @recipe.ingredients.build
+    #@recipe.ingredients.build
+    @recipe.directions.build
 end
 
 # GET /articles/1/edit
@@ -39,7 +40,7 @@ def create
   @recipe = Recipe.new(params[:recipe])
 
   if @recipe.save
-    redirect_to recipe_url(@recipe), :notice => 'Recipe successfully added.'
+    redirect_to @recipe, :notice => 'Recipe successfully added.'
   else
     redirect_to new_recipe_url
   end
@@ -51,7 +52,7 @@ def update
   @recipe = Recipe.find(params[:id])
 
   respond_to do |format|
-    if @recipe.update_attributes(params[:article])
+    if @recipe.update_attributes(params[:recipe])
       format.html { redirect_to(@recipe, :notice => 'Recipe was successfully updated.') }
       format.xml  { head :ok }
     else

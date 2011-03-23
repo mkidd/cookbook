@@ -1,15 +1,24 @@
 <h1>Recipe#show</h1>
 
-<%= @recipe.title %>
-<%= @recipe.source %>
-<%= @recipe.image %>
-<%= @recipe.cooktime %>
-<%= @recipe.description %>
+Title: <%= @recipe.title %><br/>
+Source: <%= @recipe.source %><br/>
+Image: <%= @recipe.image %><br/>
+Cooktime: <%= @recipe.cooktime %><br/>
+Description: <%= @recipe.description %><br/>
 <br/>
+<h3>Ingredients</h3>
 <ol>
 <% for ingredient in @recipe.ingredients %>
   <li>
     <%= ingredient.food %>
+  </li>
+<% end %>
+</ol>
+<h3>Directions</h3>
+<ol>
+<% for direction in @recipe.directions %>
+  <li>
+    <%= direction.instruction %>
   </li>
 <% end %>
 </ol>

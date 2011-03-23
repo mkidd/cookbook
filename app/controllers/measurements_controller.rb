@@ -17,9 +17,9 @@ class MeasurementsController < ApplicationController
     @measurement = Measurement.new(params[:measurement])
 
     if @measurement.save
-      redirect_to measurement_url(@measurement), :notice => 'Measurement successfully added.'
+      redirect_to @measurement, :notice => 'Measurement successfully added.'
     else
-      redirect_to new_measurement_url
+      redirect_to new_measurements_url
     end
   end
 
