@@ -10,6 +10,7 @@
 			<%= single_measurement.measurement %>
 			<%= single_measurement.abbreviation %>
 			<%= single_measurement.measurement_type %>
+			<%= link_to "View", measurement_path(single_measurement)%>
 			<%= link_to "Delete", single_measurement, :confirm => 'Are you sure?', :method => :delete %>
 			<%= link_to "Edit", edit_measurement_path(single_measurement)%><br/>
 		<% end %>
