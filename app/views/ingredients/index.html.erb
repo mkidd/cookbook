@@ -1,2 +1,20 @@
 <h1>Ingredient#index</h1>
 <p>Find me in app/views/ingredient/index.html.erb</p>
+
+<h1>Listing Ingredients</h1>
+
+<div id="ingredients">
+	<% if !@ingredients.empty? %>
+		<% @ingredients.each do |single_ingredient| %>
+			<%= single_ingredient.food %>
+			<%= link_to "View", ingredient_path(single_ingredient)%>
+			<%= link_to "Delete", single_ingredient, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to "Edit", edit_ingredient_path(single_ingredient)%><br/>
+		<% end %>
+	<% else %>
+		I got nothin'
+	<% end %>
+	<br/>
+	<br/>
+</div>
+<%= debug @ingredients %>

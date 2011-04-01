@@ -1,6 +1,10 @@
 class IngredientsController < ApplicationController
 
-    before_filter :load_recipe, :except => :destroy
+    before_filter :load_recipe, :except => [:destroy, :index, :edit, :update]
+    def index
+      @ingredients = Ingredient.all
+    end
+
     def new
         @ingredient = Ingredient.new
     end
@@ -12,6 +16,19 @@ class IngredientsController < ApplicationController
         redirect_to @recipe, :notice => 'Ingredient successfully added.'
       else
         redirect_to @recipe, :alert => 'Unable to add ingredient'
+      end
+    end
+
+    def edit
+      @ingredient = Ingredient.find(params[:id])
+    end
+    
+    def update
+      @ingredient = Ingredient.find(params[:id])
+      if @ingredient.update_attributes(params[:ingredient])
+        redirect_to ingredients_path, :notice => 'Updated ingredient information successfully.'
+      else
+        render :action => 'edit'
       end
     end
 

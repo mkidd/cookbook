@@ -2,7 +2,7 @@
 	<fieldset>
 		<%= f.label :quantity %>
 		<%= f.text_field :quantity %>
-		<%= collection_select(:ingredient, :measurement_id, Measurement.all, :size, :size) %>
+		<%= collection_select(:ingredient, :measurement, Measurement.all, :id, :abbreviation) %>
 		<%= f.label :food %>
 		<%= f.text_field :food %>
 	</fieldset>

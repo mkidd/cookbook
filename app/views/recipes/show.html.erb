@@ -7,13 +7,15 @@ Cooktime: <%= @recipe.cooktime %><br/>
 Description: <%= @recipe.description %><br/>
 <br/>
 <h3>Ingredients</h3>
-<ol>
-<% for ingredient in @recipe.ingredients %>
+<ul>
+<% for ingredient in @recipe.ingredients%>
   <li>
+    <%= ingredient.quantity %>
+	<%= ingredient.measurement.abbreviation %>
     <%= ingredient.food %>
   </li>
 <% end %>
-</ol>
+</ul>
 <h3>Directions</h3>
 <ol>
 <% for direction in @recipe.directions %>

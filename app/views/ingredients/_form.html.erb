@@ -1,0 +1,25 @@
+<%= form_for @ingredient, :url_for => {:controller => 'ingredients', :action => 'create'} do |f| %>
+  <% if @ingredient.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this measurement from being saved:</h2>
+    <ul>
+    <% @ingredient.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <fieldset>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+  </fieldset>
+  <%= collection_select(:ingredient, :measurement_id, Measurement.all, :id, :abbreviation) %>
+  <fieldset>
+    <%= f.label :food %>
+    <%= f.text_field :food %>
+  </fieldset>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

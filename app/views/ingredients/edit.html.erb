@@ -1,2 +1,10 @@
 <h1>Ingredient#edit</h1>
 <p>Find me in app/views/ingredient/edit.html.erb</p>
+
+
+<h1>Editing Ingredient</h1>
+
+<%= render 'form' %>
+<%= debug @ingredient %>
+<%= link_to 'Show', @ingredient %> |
+<%= link_to 'Back', ingredients_path %>

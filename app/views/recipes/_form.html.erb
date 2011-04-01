@@ -35,12 +35,6 @@
 	  <fieldset>
 	    <%= g.label :quantity %>
 	    <%= g.text_field :quantity %>
-		<% if @g.measurement.present? %>
-		  We got a measurement...maybe 
-		  <%#= g.measurement.measurement %>
-		<% else %>
-		  Got nothin
-		<% end %>
 	    <%= g.label :food %>
 	    <%= g.text_field :food %>
 	  </fieldset>
